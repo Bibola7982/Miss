@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)file:///C:/Users/Genius/Downloads/PortableGit/Miss/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEVIL GENIUS </title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+        
+        body {
+            background-color: #000;
+            color: #ff0000;
+            font-family: 'Black Ops One', cursive;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            cursor: none;
+            animation: flicker 0.1s infinite alternate;
+        }
+        
+        @keyframes flicker {
+            0% { opacity: 0.9; }
+            10% { opacity: 0.8; }
+            20% { opacity: 0.95; }
+            30% { opacity: 0.85; }
+            40% { opacity: 1; }
+            50% { opacity: 0.9; }
+            60% { opacity: 0.82; }
+            70% { opacity: 0.88; }
+            80% { opacity: 0.93; }
+            90% { opacity: 0.87; }
+            100% { opacity: 0.94; }
+        }
+        
+        .login-container {
+            background-color: rgba(10, 0, 0, 0.85);
+            border: 3px solid #ff0000;
+            border-radius: 10px;
+            padding: 30px;
+            width: 400px;
+            box-shadow: 0 0 50px #ff0000;
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+            backdrop-filter: blur(5px);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #ff0000;
+            text-shadow: 0 0 15px #ff0000;
+            margin-bottom: 30px;
+            font-size: 32px;
+            letter-spacing: 5px;
+            animation: glow 2s infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; }
+            to { text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000; }
+        }
+        
+        .devil-face {
+            font-size: 60px;
+            text-align: center;
+            margin: 20px 0;
+            text-shadow: 0 0 20px #ff0000;
+            position: relative;
+        }
+        
+        .eyes {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+        
+        .eye {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #ff0000;
+            border-radius: 50%;
+            margin: 0 10px;
+            box-shadow: 0 0 20px #ff0000;
+            position: relative;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ff0000;
+            font-size: 14px;
+            text-shadow: 0 0 5px #ff0000;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 1px solid #ff0000;
+            color: #00ff00;
+            font-size: 16px;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #00ff00;
+            box-shadow: 0 0 10px #00ff00;
+        }
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff0000;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            margin-top: 10px;
+            font-family: 'Black Ops One', cursive;
+        }
+        
+        button:hover {
+            background-color: #00ff00;
+            color: #000;
+            box-shadow: 0 0 20px #00ff00;
+        }
+        
+        .warning {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #ff0000;
+            text-shadow: 0 0 5px #ff0000;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+        
+        .blood-drips {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .drip {
+            position: absolute;
+            width: 2px;
+            background: linear-gradient(to bottom, rgba(255,0,0,0.8), transparent);
+            animation: drip 5s linear infinite;
+        }
+        
+        @keyframes drip {
+            0% { height: 0; top: -20px; }
+            50% { height: 50px; }
+            100% { height: 100px; top: 100%; }
+        }
+        
+        /* Matrix rain */
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        
+        .matrix-column {
+            display: inline-block;
+            width: 1em;
+            margin-right: 2px;
+            color: #00ff00;
+            font-family: monospace;
+            font-size: 16px;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            animation: matrix-fall linear infinite;
+        }
+        
+        @keyframes matrix-fall {
+            to { transform: translateY(100vh); }
+        }
+        
+        /* Ghost skulls */
+        .ghost-skull {
+            position: absolute;
+            font-size: 30px;
+            animation: float 10s linear infinite;
+            opacity: 0.7;
+            z-index: -1;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+        }
+        
+        /* Pentagram */
+        .pentagram {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="none" stroke="red" stroke-width="2" d="M50 5L63 37L97 38L69 59L79 91L50 73L21 91L31 59L3 38L37 37Z"/></svg>') no-repeat;
+            background-size: contain;
+            opacity: 0;
+            transition: opacity 0.5s;
+            z-index: 5;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body style="background-color: rgb(0, 0, 0);">
+    <div class="matrix-rain" id="matrixRain"><div class="matrix-column" style="left: 0px; animation-duration: 12.569s; animation-delay: 2.44456s;">I MRIGRGEYSUIENNIRU NTENSIYMNN </div><div class="matrix-column" style="left: 16px; animation-duration: 8.40758s; animation-delay: 3.29838s;">TSGSIRSNIESEYYUEYNNS NSGM ENOMUIE_&gt;&gt;&gt;SURG&gt;NOINS</div><div class="matrix-column" style="left: 32px; animation-duration: 10.6858s; animation-delay: 0.0732913s;">&gt;GNOG &gt;TGYE&gt; MNISNSNSMNRMMORU&gt;EGE</div><div class="matrix-column" style="left: 48px; animation-duration: 9.89084s; animation-delay: 1.85871s;">IYSMMU&gt;&gt;GMENETSEOMETEON&gt;UYGERIYN&gt;MSGYIMMM</div><div class="matrix-column" style="left: 64px; animation-duration: 14.7203s; animation-delay: 4.44404s;">RMU NGSGS UGEN&gt;NYSOSEMIYGI NN_ENN</div><div class="matrix-column" style="left: 80px; animation-duration: 5.0768s; animation-delay: 3.55104s;">GNSUUN_GIU_EEN UTTONRRRUNO_U&gt;_&gt;_S&gt;Y &gt;EYUGN</div><div class="matrix-column" style="left: 96px; animation-duration: 9.59355s; animation-delay: 3.29717s;"> &gt;NYITSTN GSMUNRMU  NY&gt;RGRTGN&gt;TENMOYTUGMESNME</div><div class="matrix-column" style="left: 112px; animation-duration: 10.9141s; animation-delay: 0.0172039s;">EEUMUGEMOR&gt;O_IEU&gt;G&gt;GRM&gt;MRU&gt;TN MTN&gt;&gt;NOETRER</div><div class="matrix-column" style="left: 128px; animation-duration: 5.16786s; animation-delay: 0.963043s;">GNM&gt;NIME&gt;UE_EGTIMITUEN&gt;MMRS_S&gt;TNIRRESI&gt;MRGM_ORMT</div><div class="matrix-column" style="left: 144px; animation-duration: 10.872s; animation-delay: 1.72585s;">EM&gt;IIR&gt;N&gt;&gt;RNRRIYN&gt;I&gt;UMUN&gt;GNOIEMYNTERMSNNY&gt;EUIU</div><div class="matrix-column" style="left: 160px; animation-duration: 6.89132s; animation-delay: 4.07035s;">NSYGTRRIUEYON_YNSNMOYG&gt;UMGMES&gt;MUIMUUY&gt;GO&gt;YR&gt;TUS&gt;I</div><div class="matrix-column" style="left: 176px; animation-duration: 9.60955s; animation-delay: 3.91916s;">&gt;&gt;RRTNM_IG&gt;EIR G GES&gt;IMU_IEO&gt;&gt;II&gt;SGIRMOII</div><div class="matrix-column" style="left: 192px; animation-duration: 5.06912s; animation-delay: 0.135887s;">U&gt;GSI_MM &gt;EUGGUYESIT_ME&gt;MMGETMROE__NME__GNIM</div><div class="matrix-column" style="left: 208px; animation-duration: 12.0252s; animation-delay: 4.50251s;">_NEMNSENREEM UUYIYMNGUYIYTE&gt;SM_MMSGNSY</div><div class="matrix-column" style="left: 224px; animation-duration: 13.7423s; animation-delay: 2.88652s;">YRNT&gt;NN__UGYGMMENNMMSORINROOERNMGI</div><div class="matrix-column" style="left: 240px; animation-duration: 6.72928s; animation-delay: 4.47258s;">_UMUEMNT RNNM&gt;NT_SG&gt;RSR&gt;N&gt;ENMIU_ITM</div><div class="matrix-column" style="left: 256px; animation-duration: 12.751s; animation-delay: 3.65221s;">MT&gt;INNSOE&gt;SIEGIMSS&gt;OEETM  SGTY IRISMGNR_IGY</div><div class="matrix-column" style="left: 272px; animation-duration: 7.05043s; animation-delay: 1.06913s;">EUI ISEIRONRMNGYMENN_NMGTEYNREEMU&gt;NOOM</div><div class="matrix-column" style="left: 288px; animation-duration: 5.41139s; animation-delay: 3.63088s;">I&gt; _MMER&gt;NRUMM_E&gt;OI ESN_GO_YNGNMMEOEEUMTTGR&gt;IGMR</div><div class="matrix-column" style="left: 304px; animation-duration: 6.3803s; animation-delay: 3.30045s;">&gt;TMGYG&gt;RNIUGUS&gt;OOROSGSM MGNMGE_TRGIN_MNUMRI</div><div class="matrix-column" style="left: 320px; animation-duration: 6.11429s; animation-delay: 4.41651s;">Y&gt;EMTNMN SGIRUNISUGTSS ETIIUEI SIIUGSMIISGRM</div><div class="matrix-column" style="left: 336px; animation-duration: 13.3883s; animation-delay: 0.135779s;">MNNN_MMIMRIEE&gt;&gt;M&gt;S&gt;S&gt;_TOYTNMTSS&gt;NO&gt;IS</div><div class="matrix-column" style="left: 352px; animation-duration: 12.704s; animation-delay: 2.05407s;">&gt;RETMRMIN SN&gt;I&gt;&gt;GUMGMITS&gt;UESIYMMUNME</div><div class="matrix-column" style="left: 368px; animation-duration: 13.5938s; animation-delay: 2.54932s;">NNMITGISMG OMN_O&gt;&gt;YO ENRGNIN&gt;IE_GE</div><div class="matrix-column" style="left: 384px; animation-duration: 8.33612s; animation-delay: 3.43536s;">NONER &gt;YTMIUSY&gt;SO EI&gt;EON NTS&gt;II&gt;Y NM</div><div class="matrix-column" style="left: 400px; animation-duration: 10.0278s; animation-delay: 1.7964s;">ETG_EINYTNSGEIN&gt;NY_ER&gt;UYMSNINGUN</div><div class="matrix-column" style="left: 416px; animation-duration: 12.548s; animation-delay: 0.22581s;">E&gt;NMUNUEUO&gt;ROESNEUEOGI NMTMSIS_ETMM</div><div class="matrix-column" style="left: 432px; animation-duration: 12.439s; animation-delay: 2.3463s;">GISMOOUM ISIEIUNEGOMRSGGUR&gt;_MNI&gt;</div><div class="matrix-column" style="left: 448px; animation-duration: 6.91735s; animation-delay: 4.49544s;">RS GIIN NGY_GRESNN&gt;NNR   NNUEIMSUUYMOI &gt;T </div><div class="matrix-column" style="left: 464px; animation-duration: 6.80016s; animation-delay: 2.14756s;">USMYUURSEEGMSMRGUMRMYN&gt;I&gt;OE&gt; U&gt;SIUENSI&gt;OYNM</div><div class="matrix-column" style="left: 480px; animation-duration: 9.50382s; animation-delay: 3.45046s;">S&gt; IST&gt; SMRI&gt;&gt;GE GR GR&gt;UIOOUGEGR&gt;NG&gt;EU_NNI YR</div><div class="matrix-column" style="left: 496px; animation-duration: 12.612s; animation-delay: 1.96622s;">GMRRIGEM GTN_M&gt;MYUUY GMUYIMESNMRNNGEGEGMGEMUEM   </div><div class="matrix-column" style="left: 512px; animation-duration: 8.59009s; animation-delay: 1.38453s;">EMSN&gt;OOGEGNUE&gt;YSIE MMMUIS&gt;YNGSNSMU</div><div class="matrix-column" style="left: 528px; animation-duration: 11.1927s; animation-delay: 1.17551s;">REM MIYEM&gt;UGMIIRNUTGNN&gt;UMUNNSRNUNG&gt;GSEGNRINRYMG</div><div class="matrix-column" style="left: 544px; animation-duration: 11.1926s; animation-delay: 1.03588s;">ME&gt;ER&gt;TNUIR I &gt;MOY&gt;U&gt;IRGGI NENSYIIGRNSITSU&gt;G</div><div class="matrix-column" style="left: 560px; animation-duration: 11.5485s; animation-delay: 2.77042s;">MRM&gt;EMSYRG_S&gt;IS_I&gt;UYEYSYMMRSEGGNIGU_MNY_OMT_IRNS</div><div class="matrix-column" style="left: 576px; animation-duration: 13.8689s; animation-delay: 4.15644s;">N S&gt;O&gt;TE&gt;N_EGR SSTIN U&gt;MEUNSS&gt;MUUIUNSOM</div><div class="matrix-column" style="left: 592px; animation-duration: 11.8925s; animation-delay: 3.60417s;">&gt;EUSESME_T_OMMMRU MRIGNE RTS_TGNNIY RGMRMEUSUGIRM</div><div class="matrix-column" style="left: 608px; animation-duration: 12.231s; animation-delay: 0.115591s;">SNU&gt;UE&gt;TEUGYI _SE&gt;TUNNYMSMU_MEOGMY MRNMGMEMGNGE</div><div class="matrix-column" style="left: 624px; animation-duration: 10.2084s; animation-delay: 1.75097s;">MRMI&gt;&gt;RSIN&gt;M&gt;ESNURI&gt;NNYMT MMMNS</div><div class="matrix-column" style="left: 640px; animation-duration: 14.2732s; animation-delay: 3.50134s;">G&gt;M UERISGENEYRYRSIU&gt;E&gt;_ER_YNTG N&gt;EM&gt;EOOR_NUONE</div><div class="matrix-column" style="left: 656px; animation-duration: 10.1839s; animation-delay: 0.645865s;">INNIE&gt;NNNNYURR_&gt;MTRU&gt;UGGMST Y_OUSUI EU&gt;UMSGM</div><div class="matrix-column" style="left: 672px; animation-duration: 5.17015s; animation-delay: 3.46693s;">NSON_MSOMUESGENOMUGNMSN&gt;SSGSSMI_ER_U&gt;</div><div class="matrix-column" style="left: 688px; animation-duration: 13.0628s; animation-delay: 3.336s;">NNIMTGMSMEENONNGSMYEMMT&gt;&gt;UM_OIMNTYGNRNTE</div><div class="matrix-column" style="left: 704px; animation-duration: 10.7726s; animation-delay: 3.49813s;">MEONYGREEUTIM _EEU_RE_I USUUNUNNS_OURNNNYI&gt;G</div><div class="matrix-column" style="left: 720px; animation-duration: 12.6395s; animation-delay: 3.47753s;">RNNN_G&gt;EUM&gt;MN MUEIMNRGUSUMMNS&gt;RIOTMMU</div><div class="matrix-column" style="left: 736px; animation-duration: 6.48438s; animation-delay: 2.64753s;">INGUNYOSMOGEUGSMNUUTN SSSN YMYN&gt;NIMSEN&gt;UGMM_&gt;&gt;&gt;YN</div><div class="matrix-column" style="left: 752px; animation-duration: 6.22081s; animation-delay: 4.15567s;">NES&gt;UEMIN&gt;I&gt;NIOTTNTMI GG_USERISN ETRR R</div><div class="matrix-column" style="left: 768px; animation-duration: 7.60022s; animation-delay: 4.85077s;">IRMYIOIGNISSN&gt;YY &gt;SGUNYN&gt;NTGNMIMYE&gt;E&gt;GIESMTIOEENG</div><div class="matrix-column" style="left: 784px; animation-duration: 14.0982s; animation-delay: 2.02533s;">G G&gt;G &gt;YOMIITIEEM&gt;UEENESSNRIMMUE_MNOYONONSYGY&gt;INN</div><div class="matrix-column" style="left: 800px; animation-duration: 13.3304s; animation-delay: 3.64545s;">&gt;MN&gt;M&gt;TNUMMEOMMM&gt;&gt;OM_MUNSORE_RMNEE</div><div class="matrix-column" style="left: 816px; animation-duration: 5.6282s; animation-delay: 1.46688s;">MEGGORUSOI &gt;MMSMRU&gt;MMUMS&gt;USGMNYYMUMIME</div><div class="matrix-column" style="left: 832px; animation-duration: 13.4729s; animation-delay: 0.537573s;">IMOTMGRUN_SMNNN&gt;UINE&gt;GMYIMMSIMGINRTYSMG&gt;UGS_</div><div class="matrix-column" style="left: 848px; animation-duration: 9.51773s; animation-delay: 2.4626s;">MMRURGSIRETUIYTGO_UNISSYGGGMER&gt;UYNIUEUGSGUMMMNET</div><div class="matrix-column" style="left: 864px; animation-duration: 7.49355s; animation-delay: 2.46246s;">R&gt;UEEMGSEESMMRI&gt;TOMMNEYOSYMRNUMGN_UEEMEYM</div><div class="matrix-column" style="left: 880px; animation-duration: 13.7541s; animation-delay: 1.31027s;">RINEMNN NRMMINNSMREISGUE&gt;YNU YIENGIGR&gt;UER&gt;YGN</div><div class="matrix-column" style="left: 896px; animation-duration: 12.5331s; animation-delay: 0.873563s;">MINMRG_GSITI&gt;G&gt;SGEINYGYE&gt;IMYGUGIUR_</div><div class="matrix-column" style="left: 912px; animation-duration: 14.6937s; animation-delay: 2.69249s;">ERSTNTYMRRN&gt;UMMOEYYT GMMMM&gt;MGMNUI</div><div class="matrix-column" style="left: 928px; animation-duration: 12.4908s; animation-delay: 0.212751s;"> YNN ORENRGM RNSIR&gt;MNIMSE&gt;IUNMIGNTUMIIG</div><div class="matrix-column" style="left: 944px; animation-duration: 11.5489s; animation-delay: 1.46148s;">RINMMIGMIN&gt;OMU&gt;UUSOYU&gt;SMGNNIEN</div><div class="matrix-column" style="left: 960px; animation-duration: 14.3716s; animation-delay: 0.155273s;">UGNNRS&gt;O &gt;&gt;M_SUUUUENS_&gt;RGNIIROUMMN&gt;R&gt;RNNM</div><div class="matrix-column" style="left: 976px; animation-duration: 13.0134s; animation-delay: 1.99788s;">MGUNGOGE&gt;RN&gt;SIIONNRNE_RMUS&gt;EN&gt;EEGIIGR&gt;</div><div class="matrix-column" style="left: 992px; animation-duration: 14.0763s; animation-delay: 4.66556s;">EMONMG_O_GGTMUEGNGIMNRUTU&gt;SSO&gt;I</div><div class="matrix-column" style="left: 1008px; animation-duration: 9.022s; animation-delay: 2.00066s;">M_EEGS &gt;MNOSGG_IENG NNUMEGR&gt;MYG&gt;MMN</div><div class="matrix-column" style="left: 1024px; animation-duration: 10.0701s; animation-delay: 4.80798s;">RMUS_SYYRNIEREMNRNMMMNOMSSRNN&gt;MRRO  RMGESG UM</div><div class="matrix-column" style="left: 1040px; animation-duration: 5.12965s; animation-delay: 3.7262s;">&gt;GU_ME_OOMEG_MNSURYSUUYIR_UISRN MSESRSIINOOEU</div><div class="matrix-column" style="left: 1056px; animation-duration: 14.0138s; animation-delay: 0.370947s;">NUN&gt;INETN&gt;&gt;NG&gt;SEIMGIEMU&gt;EUS RGMUNGENRU_RNGNUGE</div><div class="matrix-column" style="left: 1072px; animation-duration: 13.6438s; animation-delay: 2.36696s;">IMRGOU_MRN_M&gt;NNSSEINNROEO_MMN&gt;YSN</div><div class="matrix-column" style="left: 1088px; animation-duration: 10.5617s; animation-delay: 2.8342s;">S&gt;GINYINE_RUGNRUIUIUN_UM&gt;TRNMNI_TMNY</div><div class="matrix-column" style="left: 1104px; animation-duration: 14.0375s; animation-delay: 4.94184s;">GETGMIMENOE&gt;&gt;MSMEGN&gt;SRMNEUIIII IGEMMG SNIIR</div><div class="matrix-column" style="left: 1120px; animation-duration: 8.03833s; animation-delay: 1.38673s;">NMSORT&gt;YIUESNISNIIUEGTM MSI&gt;OUMRSRUU</div><div class="matrix-column" style="left: 1136px; animation-duration: 7.73082s; animation-delay: 2.50317s;">OIOOURTGNGMGMIMINUUSMIUUNGTNGUGO_UTE YM_</div><div class="matrix-column" style="left: 1152px; animation-duration: 8.22171s; animation-delay: 1.42257s;">_NU&gt; ENMSY_RYMRR_R&gt;ESYRMMNUU &gt;SRTUS&gt;I&gt;RIMU</div><div class="matrix-column" style="left: 1168px; animation-duration: 11.2269s; animation-delay: 1.65627s;">SNMMTROG_TIE&gt;UYYNUSNUR&gt;GNUURS&gt;RSTNEIOIGROT&gt;GINRTM</div><div class="matrix-column" style="left: 1184px; animation-duration: 14.6977s; animation-delay: 0.807123s;">RMYO&gt;GNUER&gt;SM MRIM NSIN  GNRISEG&gt;EG</div><div class="matrix-column" style="left: 1200px; animation-duration: 11.1741s; animation-delay: 4.31441s;">UIOGUIEOSUI&gt;R_ONSYMITIIY&gt;RRSUE RMTO&gt;INNRGNG&gt;NOO&gt;</div><div class="matrix-column" style="left: 1216px; animation-duration: 12.1626s; animation-delay: 2.82126s;">R&gt;T&gt;SRSRGYNMN ORE GGYEIEMGSRNNMSUYOEUUNG</div><div class="matrix-column" style="left: 1232px; animation-duration: 5.06616s; animation-delay: 0.029766s;">NUIUEI N&gt;NMRRGGGRMITS&gt;USSMNRTSRG_ROEGN&gt;INMN</div><div class="matrix-column" style="left: 1248px; animation-duration: 9.12218s; animation-delay: 3.10774s;">SNERESUMMRMSNUIMESITMIRMTY I&gt;RIGYYNTSSIU&gt;S_EEMI</div><div class="matrix-column" style="left: 1264px; animation-duration: 12.3052s; animation-delay: 1.14209s;">_&gt;OUMIRESIEGMIEEEMNEMETYNEMEN NUYNIESUS UMTNENM</div><div class="matrix-column" style="left: 1280px; animation-duration: 7.83444s; animation-delay: 4.98992s;">I&gt;OMIGNEMORUIMMNNUEIOIN&gt;URREYM_N</div><div class="matrix-column" style="left: 1296px; animation-duration: 8.57909s; animation-delay: 0.590369s;">REIS&gt;IEEGRSSNSIIEIOEOSISMSEIMMSTI_MII</div><div class="matrix-column" style="left: 1312px; animation-duration: 6.86675s; animation-delay: 3.21377s;">N_NUYIS_NNUNSIUE&gt; SINMGGSTRUMGTGNE</div><div class="matrix-column" style="left: 1328px; animation-duration: 9.16327s; animation-delay: 1.19974s;">M&gt;RGN RTGGGSSUNU&gt;_IMSMGGMONYIG_GTGE RU_UN_&gt;U GES </div><div class="matrix-column" style="left: 1344px; animation-duration: 6.72558s; animation-delay: 2.60023s;">&gt;ESEGNNMN&gt;MMM_ERRENEU_NENR_ GYNSN</div></div>
+    <div class="blood-drips" id="bloodDrips"><div class="drip" style="left: 76.0781%; animation-delay: 1.66932s;"></div><div class="drip" style="left: 0.947757%; animation-delay: 1.42201s;"></div><div class="drip" style="left: 66.4049%; animation-delay: 0.534219s;"></div><div class="drip" style="left: 54.3439%; animation-delay: 1.35559s;"></div><div class="drip" style="left: 33.0189%; animation-delay: 1.52769s;"></div><div class="drip" style="left: 0.16476%; animation-delay: 3.25962s;"></div><div class="drip" style="left: 42.4239%; animation-delay: 1.0698s;"></div><div class="drip" style="left: 94.8183%; animation-delay: 1.25062s;"></div><div class="drip" style="left: 20.9078%; animation-delay: 0.646347s;"></div><div class="drip" style="left: 92.9227%; animation-delay: 1.65981s;"></div><div class="drip" style="left: 6.17978%; animation-delay: 4.44385s;"></div><div class="drip" style="left: 38.1392%; animation-delay: 2.56502s;"></div><div class="drip" style="left: 18.1927%; animation-delay: 0.884857s;"></div><div class="drip" style="left: 89.0783%; animation-delay: 4.59861s;"></div><div class="drip" style="left: 70.5996%; animation-delay: 2.93133s;"></div><div class="drip" style="left: 45.3279%; animation-delay: 1.69162s;"></div><div class="drip" style="left: 10.9851%; animation-delay: 1.26576s;"></div><div class="drip" style="left: 29.5493%; animation-delay: 1.07106s;"></div><div class="drip" style="left: 86.2227%; animation-delay: 3.65886s;"></div><div class="drip" style="left: 31.3328%; animation-delay: 3.50089s;"></div></div>
+    
+    <!-- Ghost skulls will be added by JS -->
+    
+    <div class="pentagram" id="pentagram"></div>
+    
+    <div class="login-container">
+        <h1>DEVIL GENIUS</h1>
+        
+        <div class="devil-face">
+            👹
+            <div class="eyes">
+                <div class="eye" id="leftEye" style="transform: translate(4.89295px, -1.0291px);"></div>
+                <div class="eye" id="rightEye" style="transform: translate(4.89295px, -1.0291px);"></div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>SOUL IDENTIFIER ID</label>
+            <input type="text" id="username" placeholder="Enter your soul Signature ...">
+        </div>
+        
+        <div class="form-group">
+            <label>TERMINAL ACCESS KEY</label>
+            <input type="password" id="password" placeholder="Suffer in silence ☠ ...">
+        </div>
+        
+        <button onclick="attemptLogin()">BEG FOR ENTRY</button>
+        
+        <div class="warning">
+            WARNING: UNAUTHORIZED ACCESS WILL RESULT IN ETERNAL DAMNATION<br>
+            YOUR SOUL WILL BE CONSUMED BY THE DARKNESS<br>
+            PROCEED AT YOUR OWN RISK
+        </div>
+		<div style="position: absolute; bottom: 10px; font-size: 12px; color: red; text-shadow: 0 0 5px Blood; z-index: 5; animation: glitch 1s infinite;">
+    ☠ © 2025 Mr. Devil Genius ☠
+</div>
+
+    </div>
+
+    <!-- Audio elements -->
+    <audio id="thunderSound" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-thunder-strike-1680.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="screamSound" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-human-scream-2291.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="crackleSound" preload="auto" loop="">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-fireplace-crackles-1681.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="errorSound" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-ominous-drone-227.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Create blood drips
+        function createBloodDrips() {
+            const container = document.getElementById('bloodDrips');
+            for (let i = 0; i < 20; i++) {
+                const drip = document.createElement('div');
+                drip.className = 'drip';
+                drip.style.left = Math.random() * 100 + '%';
+                drip.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(drip);
+            }
+        }
+        
+        // Create matrix rain
+        function createMatrixRain() {
+            const chars = "MR>GENIUS MR>MONTY_GENIUS";
+            const container = document.getElementById('matrixRain');
+            const columnCount = Math.floor(window.innerWidth / 16);
+            
+            for (let i = 0; i < columnCount; i++) {
+                const column = document.createElement('div');
+                column.className = 'matrix-column';
+                column.style.left = (i * 16) + 'px';
+                column.style.animationDuration = (5 + Math.random() * 10) + 's';
+                column.style.animationDelay = (Math.random() * 5) + 's';
+                
+                // Add random characters
+                let content = '';
+                const charCount = 30 + Math.floor(Math.random() * 20);
+                for (let j = 0; j < charCount; j++) {
+                    content += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+                column.textContent = content;
+                
+                container.appendChild(column);
+            }
+        }
+        
+        // Create ghost skulls
+        function createGhostSkulls() {
+            for (let i = 0; i < 8; i++) {
+                const skull = document.createElement('div');
+                skull.className = 'ghost-skull';
+                skull.textContent = '💀';
+                skull.style.left = Math.random() * 100 + 'vw';
+                skull.style.animationDuration = (10 + Math.random() * 20) + 's';
+                skull.style.animationDelay = Math.random() * 10 + 's';
+                document.body.appendChild(skull);
+            }
+        }
+        
+        // Eye tracking
+        function trackEyes(event) {
+            const leftEye = document.getElementById('leftEye');
+            const rightEye = document.getElementById('rightEye');
+            
+            const rect = leftEye.getBoundingClientRect();
+            const eyeX = rect.left + rect.width / 2;
+            const eyeY = rect.top + rect.height / 2;
+            
+            const angle = Math.atan2(event.clientY - eyeY, event.clientX - eyeX);
+            const distance = Math.min(5, Math.hypot(event.clientX - eyeX, event.clientY - eyeY) / 20);
+            
+            const leftPupilX = Math.cos(angle) * distance;
+            const leftPupilY = Math.sin(angle) * distance;
+            
+            leftEye.style.transform = `translate(${leftPupilX}px, ${leftPupilY}px)`;
+            rightEye.style.transform = `translate(${leftPupilX}px, ${leftPupilY}px)`;
+        }
+        
+        // Play random sound
+        function playRandomSound() {
+            const sounds = ['thunder', 'scream', 'crackle'];
+            const sound = sounds[Math.floor(Math.random() * sounds.length)];
+            document.getElementById(sound + 'Sound').play();
+            
+            // Schedule next sound
+            setTimeout(playRandomSound, 5000 + Math.random() * 10000);
+        }
+        
+        // Show pentagram
+        function showPentagram() {
+            const pentagram = document.getElementById('pentagram');
+            pentagram.style.left = (Math.random() * (window.innerWidth - 200)) + 'px';
+            pentagram.style.top = (Math.random() * (window.innerHeight - 200)) + 'px';
+            pentagram.style.opacity = '0.8';
+            
+            setTimeout(() => {
+                pentagram.style.opacity = '0';
+            }, 1000);
+        }
+        
+        // Secure login function
+        function attemptLogin() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (!username || !password) {
+                document.getElementById('errorSound').play();
+                showPentagram();
+                alert("FOOLISH MORTAL! COMPLETE YOUR DAMNATION!");
+                return;
+            }
+            
+            // Simple validation (in a real system, this would be server-side)
+            if (password.length < 8) {
+                document.getElementById('errorSound').play();
+                showPentagram();
+                alert("YOUR TORMENT IS TOO WEAK! STRENGTHEN YOUR SUFFERING!");
+                return;
+            }
+            
+            // Play success sound (could add a different sound here)
+            document.getElementById('thunderSound').play();
+            alert("ACCESS GRANTED... WELCOME TO HELL");
+            
+            // Here you would typically redirect to a secure session
+            // window.location.href = "/secure-dashboard";
+        }
+        
+        // Initialize
+        window.onload = function() {
+            createBloodDrips();
+            createMatrixRain();
+            createGhostSkulls();
+            document.addEventListener('mousemove', trackEyes);
+            
+            // Start playing sounds after a delay (autoplay policies)
+            setTimeout(() => {
+                playRandomSound();
+                document.getElementById('crackleSound').loop = true;
+                document.getElementById('crackleSound').play();
+            }, 1000);
+            
+            // Random thunder flashes
+            setInterval(() => {
+                if (Math.random() > 0.7) {
+                    document.body.style.backgroundColor = '#110000';
+                    document.getElementById('thunderSound').play();
+                    setTimeout(() => {
+                        document.body.style.backgroundColor = '#000';
+                    }, 100);
+                }
+            }, 5000);
+        };
+        
+        // Add scary typing effect
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                attemptLogin();
+            }
+        });
+    </script>
+
+<div class="ghost-skull" style="left: 43.8392vw; animation-duration: 20.5221s; animation-delay: 5.5658s;">💀</div><div class="ghost-skull" style="left: 52.0462vw; animation-duration: 25.0274s; animation-delay: 4.38235s;">💀</div><div class="ghost-skull" style="left: 84.9888vw; animation-duration: 22.3816s; animation-delay: 1.80329s;">💀</div><div class="ghost-skull" style="left: 97.0986vw; animation-duration: 19.7254s; animation-delay: 2.03587s;">💀</div><div class="ghost-skull" style="left: 91.7923vw; animation-duration: 12.8386s; animation-delay: 2.90896s;">💀</div><div class="ghost-skull" style="left: 43.0553vw; animation-duration: 29.6671s; animation-delay: 8.07757s;">💀</div><div class="ghost-skull" style="left: 47.1418vw; animation-duration: 26.4301s; animation-delay: 0.266411s;">💀</div><div class="ghost-skull" style="left: 0.125156vw; animation-duration: 22.0813s; animation-delay: 2.66203s;">💀</div></body></html>
