@@ -8,8 +8,8 @@
         @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
         
         body {
-            background-color: #000;
-            color: #ff0000;
+            background-color: #000 ;
+            color: transparent;
             font-family: 'Black Ops One', cursive;
             margin: 0;
             padding: 0;
@@ -37,7 +37,7 @@
         }
         
         .login-container {
-            background-color: rgba(10, 0, 0, 0.85);
+            background-color: rgba(0, 0, 0, 0.85);
             border: 3px solid #ff0000;
             border-radius: 10px;
             padding: 30px;
@@ -278,7 +278,7 @@
             SYSTEM ADMINISTRATOR: LUCIFER MORNINGSTAR
         </div>
 		<div style="position: absolute; bottom: 10px; font-size: 12px; color: red; text-shadow: 0 0 5px red; z-index: 5; animation: glitch 1s infinite;">
-    👹 © 2025 Rajveer Hacker 👹
+    ☠ © 2025 Rajveer Hacker ☠
 </div>
 
     </div>
@@ -299,7 +299,11 @@
         // Create matrix rain effect
         function createMatrixRain() {
             const chars = "01アイウエオカキクケコサシスasdfghjklqwertyuiopzxcvbnm,1234567890-セソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
-            const container = document.getElementById('matrixRain');
+            const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const nums = '0123456789';
+        const symbols = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
+        
+			const container = document.getElementById('matrixRain');
             const fontSize = 22;
             const columns = Math.floor(window.innerWidth / fontSize);
             
@@ -442,7 +446,7 @@
             }, 10000);
         }
          // Add skulls floating around
-        const skulls = ['☠', '☠', '☠', '☠', '☠', '☠', '☠', '☠', '☠', '☠', '☠', '☠'];
+        const skulls = ['☠', '☠', '👹', '☠', '☠', '☠', '👹', '☠', '☠', '☠', '👹', '☠'];
         skulls.forEach((skull, index) => {
             const skullElement = document.createElement('div');
             skullElement.className = 'skull';
@@ -501,17 +505,17 @@
         }
         
         // Start everything when page loads
-  //      window.onload = init;
+        window.onload = init;
 		
-	//	function attemptLogin() {
-  //  const password = document.getElementById('password').value;
-  //  if (password === "Genius") {
-   //     alert("ACCESS GRANTED... WELCOME TO HELL");
-  //      window.location.assign("index.html");
- //   } else {
-  //      alert("WRONG KEY! YOUR SOUL IS NOW MINE! ☠");
+		function attemptLogin() {
+    const password = document.getElementById('password').value;
+    if (password === "Genius") {
+        alert("ACCESS GRANTED... WELCOME TO HELL");
+        window.location.assign("index.html");
+    } else {
+        alert("WRONG KEY! YOUR SOUL IS NOW MINE! ☠");
     }
 }
     </script>
 
-<div class="skull" style="left: 8.25117%; top: 53.2009%; animation-delay: 3.40401s;">👹</div><div class="skull" style="left: 83.3702%; top: 74.8255%; animation-delay: 4.60204s;">💀</div><div class="skull" style="left: 60.0137%; top: 35.094%; animation-delay: 3.03374s;">💀</div><div class="skull" style="left: 10.4248%; top: 64.2007%; animation-delay: 3.06862s;">💀</div><div class="skull" style="left: 96.2415%; top: 74.049%; animation-delay: 2.16314s;">👹</div><div class="skull" style="left: 44.4576%; top: 16.8209%; animation-delay: 0.40528s;">💀</div><div class="skull" style="left: 19.9856%; top: 16.2733%; animation-delay: 0.516912s;">👹</div><div class="skull" style="left: 23.3366%; top: 35.6907%; animation-delay: 1.93032s;">💀</div><div class="skull" style="left: 40.1927%; top: 88.3475%; animation-delay: 2.66217s;">💀</div><div class="skull" style="left: 13.7306%; top: 88.2375%; animation-delay: 3.36676s;">👹</div></body></html>
+<div class="skull" style="left: 8.25117%; top: 53.2009%; animation-delay: 3.40401s;">💀</div><div class="skull" style="left: 83.3702%; top: 74.8255%; animation-delay: 4.60204s;">💀</div><div class="skull" style="left: 60.0137%; top: 35.094%; animation-delay: 3.03374s;">👹</div><div class="skull" style="left: 10.4248%; top: 64.2007%; animation-delay: 3.06862s;">💀</div><div class="skull" style="left: 96.2415%; top: 74.049%; animation-delay: 2.16314s;">👹</div><div class="skull" style="left: 44.4576%; top: 16.8209%; animation-delay: 0.40528s;">💀</div><div class="skull" style="left: 19.9856%; top: 16.2733%; animation-delay: 0.516912s;">💀</div><div class="skull" style="left: 23.3366%; top: 35.6907%; animation-delay: 1.93032s;">👹</div><div class="skull" style="left: 40.1927%; top: 88.3475%; animation-delay: 2.66217s;">💀</div><div class="skull" style="left: 13.7306%; top: 88.2375%; animation-delay: 3.36676s;">👹</div></body></html>
