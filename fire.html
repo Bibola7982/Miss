@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAKE FIREWALL BYPASS</title>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 10px;
+            height: 100vh;
+            padding: 10px;
+            position: relative;
+        }
+        .matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            z-index: -1;
+            overflow: hidden;
+        }
+        canvas {
+            display: block;
+        }
+        .section {
+            border: 1px solid red;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .globe-canvas {
+            width: 200px;
+            height: 200px;
+            background: black;
+        }
+        .data-stream {
+            color: red;
+            white-space: nowrap;
+            overflow: hidden;
+            display: block;
+            font-size: 14px;
+        }
+        .typing {
+            display: inline-block;
+            overflow: hidden;
+            border-right: 2px solid red;
+            white-space: nowrap;
+            animation: typing 2s steps(20, end) infinite alternate, blinkCursor 0.5s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blinkCursor {
+            50% { border-color: transparent; }
+        }
+    </style>
+</head>
+<body>
+    <div class="matrix">
+        <canvas id="matrixCanvas"></canvas>
+    </div>
+    <div class="section">
+        <canvas id="globeCanvas" class="globe-canvas"></canvas>
+    </div>
+    <div class="section">
+        <strong>Internet Traffic:</strong>
+        <div id="trafficData" class="data-stream"></div>
+    </div>
+    <div class="section">
+        <strong>Network Ping:</strong>
+        <div id="pingData" class="data-stream"></div>
+    </div>
+    <div class="section">
+        <strong>Executing Code...</strong>
+        <div id="codeLog" class="data-stream"></div>
+    </div>
+    <audio id="beepSound" src="https://www.soundjay.com/button/beep-07.wav"></audio>
+    <script>
+        function updatePing() {
+            const pingData = document.getElementById("pingData");
+            pingData.innerHTML = "PING 192.168.1.1: 32 bytes TTL=64 time=" + (Math.random() * 50).toFixed(2) + "ms";
+        }
+        function updateTraffic() {
+            const trafficData = document.getElementById("trafficData");
+            trafficData.innerHTML = "Packets Sent: " + Math.floor(Math.random() * 2000) + " | Packets Received: " + Math.floor(Math.random() * 2000) + " | Loss: " + (Math.random() * 2).toFixed(1) + "%";
+        }
+        function updateCodeLog() {
+            const codeLog = document.getElementById("codeLog");
+            const newLog = document.createElement("div");
+            newLog.className = "typing";
+            newLog.innerHTML = "firewall_bypass.exe -u root -p ********";
+            codeLog.appendChild(newLog);
+            document.getElementById("beepSound").play();
+            if (codeLog.children.length > 5) {
+                codeLog.removeChild(codeLog.children[0]);
+            }
+        }
+        setInterval(updatePing, 1000);
+        setInterval(updateTraffic, 2000);
+        setInterval(updateCodeLog, 3000);
+
+        // Matrix animation
+        const canvas = document.getElementById("matrixCanvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%".split("");
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "red";
+            ctx.font = fontSize + "px monospace";
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        setInterval(drawMatrix, 50);
+    </script>
+</body>
+</html>
