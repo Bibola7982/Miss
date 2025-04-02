@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker Admin Dashboard</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+        
+        body {
+            background: black;
+            color: #00ff00;
+            font-family: 'Share Tech Mono', monospace;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .dashboard-container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-right: 2px solid #00ff00;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+        }
+
+        .menu {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu li {
+            margin: 15px 0;
+        }
+
+        .menu a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            background: #001100;
+            color: #00ff00;
+            text-align: center;
+            border: 1px solid #00ff00;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .menu a:hover {
+            background: #003300;
+            box-shadow: 0 0 15px #00ff00;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: #0070ff;
+            text-align: center;
+            padding: 10px;
+            border-top: 2px solid #00ff00;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer .copyright {
+            color: red;
+            font-weight: bold;
+            padding-left: 10px;
+        }
+
+        .glitch-text {
+            font-size: 22px;
+            font-weight: bold;
+            color: red;
+            animation: glitch 0.5s infinite alternate;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px 5px red; }
+            100% { text-shadow: -2px -2px 5px red; }
+        }
+    </style>
+</head>
+<body>
+    <canvas class="matrix-canvas"></canvas>
+    <audio id="background-audio" loop>
+        <source src="hacker-theme.mp3" type="audio/mpeg">
+    </audio>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <h2>MENU</h2>
+            <ul class="menu">
+                <li><a href="#" onclick="showSection('users-section')">ALL USERS</a></li>
+                <li><a href="#" onclick="showSection('dashboard-section')">DASHBOARD</a></li>
+                <li><a href="#" onclick="showSection('logs-section')">ACCESS LOGS</a></li>
+                <li><a href="#" onclick="runPortScanner()">PORT SCANNER</a></li>
+                <li><a href="#" onclick="encryptText()">ENCRYPT MESSAGE</a></li>
+                <li><a href="#" onclick="decryptText()">DECRYPT MESSAGE</a></li>
+                <li><a href="#" onclick="passwordStrengthTest()">PASSWORD STRENGTH TEST</a></li>
+                <li><a href="#" onclick="pingNetwork()">PING NETWORK</a></li>
+                <li><a href="#" onclick="simulateFirewallBypass()">FAKE FIREWALL BYPASS</a></li>
+            </ul>
+        </div>
+        <div class="content" id="main-content">
+            <h1>Welcome to the Hacker Dashboard</h1>
+            <p id="typewriter"></p>
+            <p id="hacker-news"></p>
+            <textarea id="message" placeholder="Enter message"></textarea>
+            <button onclick="encryptText()">Encrypt</button>
+            <button onclick="decryptText()">Decrypt</button>
+            <p id="output"></p>
+        </div>
+    </div>
+    <div class="footer">
+        <span class="copyright">&copy; MR. DEVIL GENIUS</span>
+        <span id="live-time"></span>
+        <span class="glitch-text">SYSTEM BREACH DETECTED</span>
+    </div>
+    <script>
+       function updateTime() {
+            const now = new Date();
+            document.getElementById('live-time').innerText = now.toLocaleString();
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+        function typeWriterEffect(text, i = 0) {
+            if (i < text.length) {
+                document.getElementById("typewriter").innerHTML += text.charAt(i);
+                setTimeout(() => typeWriterEffect(text, i + 1), 100);
+            }
+        }
+        typeWriterEffect("Unauthorized access is strictly prohibited.");
+
+        const audio = document.getElementById("background-audio");
+        document.body.addEventListener("click", () => audio.play(), { once: true });
+
+        const canvas = document.querySelector('.matrix-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("");
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#00ff00';
+            ctx.font = fontSize + 'px monospace';
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        setInterval(drawMatrix, 50);
+        function encryptText() {
+            let message = document.getElementById("message").value;
+            let encrypted = btoa(message);
+            document.getElementById("output").innerText = "Encrypted: " + encrypted;
+        }
+        
+        function decryptText() {
+            let message = document.getElementById("message").value;
+            try {
+                let decrypted = atob(message);
+                document.getElementById("output").innerText = "Decrypted: " + decrypted;
+            } catch (e) {
+                document.getElementById("output").innerText = "Invalid encrypted text!";
+            }
+        }
+    </script>
+</body>
+</html>
