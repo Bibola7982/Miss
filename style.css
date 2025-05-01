@@ -1,9 +1,12 @@
 body {
   margin: 0;
   padding: 0;
-  
+  background-image: url('Genius.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   font-family: 'Roboto', sans-serif;
-  color: #fff0f5;
+ 
   height: 370vh;
   display: flex;
   align-items: center;
