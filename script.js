@@ -1,5 +1,4 @@
 const lines = document.querySelectorAll('.line');
-
 let currentLine = 0;
 
 function typeLine(lineElement, text, callback) {
@@ -19,14 +18,22 @@ function typeLine(lineElement, text, callback) {
 
 function speakText(text, callback) {
   const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = 'hi-IN'; // Use 'en-US' for English
   utterance.rate = 0.9;
+
+  // Pick a Hindi-English voice if available
+  const voices = speechSynthesis.getVoices();
+  const voice = voices.find(v => 
+    v.lang.toLowerCase().includes('hi') || 
+    v.name.toLowerCase().includes('india')
+  ) || voices[0];
+
+  utterance.voice = voice;
 
   utterance.onend = () => {
     callback();
   };
 
-  window.speechSynthesis.speak(utterance);
+  speechSynthesis.speak(utterance);
 }
 
 function showNextLine() {
@@ -38,12 +45,22 @@ function showNextLine() {
   typeLine(el, text, () => {
     speakText(text, () => {
       currentLine++;
-      setTimeout(showNextLine, 500); // small pause between lines
+      setTimeout(showNextLine, 500);
     });
   });
 }
 
-// Start animation and voice after page loads
+// Ensure voices are loaded before starting
+function startWithVoicesReady() {
+  if (speechSynthesis.getVoices().length !== 0) {
+    showNextLine();
+  } else {
+    speechSynthesis.onvoiceschanged = () => {
+      showNextLine();
+    };
+  }
+}
+
 window.addEventListener('DOMContentLoaded', () => {
-  showNextLine();
+  startWithVoicesReady();
 });
