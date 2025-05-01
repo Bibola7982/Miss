@@ -6,12 +6,32 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   font-family: 'Roboto', sans-serif;
- 
-  height: 370vh;
+
+  min-height: 100vh; /* ensures full height */
   display: flex;
   align-items: center;
   justify-content: center;
+
+  /* Optional: dark overlay effect */
+  position: relative;
 }
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* dark transparent overlay */
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1; /* content above overlay */
+}
+
 
 .container {
   position: relative;
