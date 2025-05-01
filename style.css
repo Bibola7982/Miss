@@ -27,10 +27,6 @@ body::before {
   z-index: 0;
 }
 
-.container {
-  position: relative;
-  z-index: 1; /* content above overlay */
-}
 
 
 .container {
