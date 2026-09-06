@@ -1,54 +1,314 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
   <title>Happy Birthday</title>
-  <link rel="stylesheet" href="style.css"/>
+
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script&family=Roboto&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+
+      /* Miss404 background */
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)),
+        url("miss404.jpg");
+
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+
+      font-family: 'Roboto', sans-serif;
+
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 850px;
+      min-height: 100vh;
+      min-height: 100dvh;
+
+      margin: 0 auto;
+      padding: 25px 20px 40px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      overflow: visible;
+    }
+
+    #title {
+      width: 100%;
+
+      margin: 10px 0 25px;
+
+      text-align: center;
+
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(32px, 7vw, 58px);
+      line-height: 1.2;
+
+      word-wrap: break-word;
+      overflow-wrap: anywhere;
+    }
+
+    .message {
+      width: 100%;
+      max-width: 780px;
+
+      padding: 20px;
+
+      border-radius: 20px;
+
+      background: rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+
+      overflow: visible;
+    }
+
+    .line {
+      margin: 0 0 18px;
+
+      color: white;
+
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(18px, 4.5vw, 27px);
+      line-height: 1.55;
+
+      text-align: center;
+
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+
+    .heart {
+      width: 100%;
+
+      margin: 25px 0;
+
+      text-align: center;
+
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(24px, 6vw, 36px);
+
+      color: white;
+    }
+
+    .whatsapp-button {
+      display: block;
+
+      width: min(100%, 420px);
+
+      margin: 10px auto 20px;
+      padding: 15px 20px;
+
+      border-radius: 50px;
+
+      text-align: center;
+      text-decoration: none;
+
+      font-family: 'Roboto', sans-serif;
+      font-size: clamp(15px, 4vw, 19px);
+      font-weight: bold;
+
+      background: rgba(255, 255, 255, 0.90);
+      color: #111;
+
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.35);
+
+      transition: transform 0.2s ease;
+    }
+
+    .whatsapp-button:active {
+      transform: scale(0.96);
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+
+      body {
+        background-attachment: scroll;
+
+        background-position: center top;
+        background-size: cover;
+      }
+
+      .container {
+        padding: 18px 10px 35px;
+      }
+
+      #title {
+        margin: 5px 0 18px;
+
+        font-size: clamp(30px, 9vw, 44px);
+
+        padding: 0 5px;
+      }
+
+      .message {
+        width: 100%;
+
+        padding: 16px 12px;
+
+        border-radius: 15px;
+      }
+
+      .line {
+        margin-bottom: 16px;
+
+        font-size: clamp(18px, 5.2vw, 24px);
+        line-height: 1.5;
+
+        text-align: center;
+      }
+
+      .heart {
+        margin: 20px 0;
+
+        font-size: clamp(25px, 7vw, 32px);
+      }
+
+      .whatsapp-button {
+        width: calc(100% - 10px);
+
+        padding: 14px 12px;
+
+        font-size: 16px;
+      }
+    }
+
+    /* Very small phones */
+    @media (max-width: 380px) {
+
+      .container {
+        padding-left: 7px;
+        padding-right: 7px;
+      }
+
+      .message {
+        padding: 14px 9px;
+      }
+
+      .line {
+        font-size: 17px;
+        line-height: 1.48;
+      }
+
+      #title {
+        font-size: 30px;
+      }
+    }
+  </style>
+
 </head>
+
 <body>
+
   <div class="container">
-    <h1 id="title">🎂 Happy Birthday 🎂  ❣️ Neha ❣️ </h1>
 
-    <div class="message">
-	<p class="line" data-text="💖 Happy Birthday Neha Yadav ❤️‍🔥 "></p>
-	  
-	  <p class="line" data-text="💖 From the moment I first saw you, my heart has been filled with feelings I can’t explain. ❤️‍🔥💭 "></p>
-	  <p class="line" data-text="You may not realize it, but I’ve been quietly admiring you from a distance, cherishing every glance 👀, every smile 😊. Seeing your happiness brightens my day in ways I can't describe. 🌟😊"></p>
-	  
-      <p class="line" data-text="Aaj bhi yaad hai woh hansi, woh baatein, woh lamhe jo sirf hamare the... 😍"></p>
-	  
-	  <p class="line" data-text="Kabhi hum sab kuch the, aaj bas yaadein hain... 💔"></p>
-	  
-      <p class="line" data-text="Tere bina bhi bhoot kum muskurata 🥲 hu , bas wajah tu nahi hoti... 💭"></p>
-      <p class="line" data-text="Tere bina jeena seekh liya hai, par har pal tujhe mehsoos karta hoon... 🌙"></p>
-      <p class="line" data-text="Dua hai har pal tujhe woh sub mile jo kabhi mere saath socha tha... ❤️"></p>
-	  <p class="line" data-text="Duaa karta hoon khushi mile tujhe har mod par... ❤️"></p>
-	  <p class="line" data-text="Tera khush rehna hi mera aakhri pyaar hai... 💫"></p>
-	  <p class="line" data-text="Chahe hum sath na ho 😘 , par dil se dua dena nahi chhoda hai maine... ❣️"></p>
-	  
-	  <p class="line" data-text="Zindagi ki iss naye safar mein har pal khushiyo se bhara ho... 😗  "></p>
-	  <p class="line" data-text="Chahe raste alag ho gaye, par duaayen kabhi kam nahi hongi ... 😊"></p>
-	  
-	  
-	  <p class="line" data-text="💬 Maybe today is the perfect moment to say... could we start as friends? 🤗🌸  "></p>
-	  <p class="line" data-text="💌 I hope this note brings a smile to your face 😄. If you feel the same way, I would love to get to know you better. 💕 But if this message makes you uncomfortable, please don’t feel pressured. I respect your feelings. 🙏"></p>
-	
-   
-	
-    </div>
+```
+<h1 id="title">🎂 Happy Birthday 🎂 ❣️ Neha ❣️</h1>
 
-    <div class="heart">🌸 U'r Mr 🤗</div>
+<div class="message">
 
-    <a href="https://wa.me/918683948560?text=Mari%20shadii%20ho%20chuki%20hai%2C%20ab%20mujhe%20tujhse%20koi%20wasta%20nahi%20rakhna%20na%20koi%20baat%20karni%20hai.%20Tujhe%20itni%20si%20baat%20samajh%20nahi%20aati%20to%20bhaad%20mein%20jaao%20tum%20aur%20tera%20pyaar.%20Birthday%20wish%20ke%20liye%20thanks%20%E2%80%94%20Thank%20you%20so%20much%20%F0%9F%99%8F" 
-   target="_blank" 
-   class="whatsapp-button">
-   💔 Akhri Baat WhatsApp Pe...🙄
+  <p class="line" data-text="💖 Happy Birthday Neha Yadav ❤️‍🔥"></p>
+
+  <p class="line" data-text="💖 From the moment I first saw you, my heart has been filled with feelings I can’t explain. ❤️‍🔥💭"></p>
+
+  <p class="line" data-text="You may not realize it, but I’ve been quietly admiring you from a distance, cherishing every glance 👀, every smile 😊. Seeing your happiness brightens my day in ways I can't describe. 🌟😊"></p>
+
+  <p class="line" data-text="Aaj bhi yaad hai woh hansi, woh baatein, woh lamhe jo sirf hamare the... 😍"></p>
+
+  <p class="line" data-text="Kabhi hum sab kuch the, aaj bas yaadein hain... 💔"></p>
+
+  <p class="line" data-text="Tere bina bhi bhoot kum muskurata 🥲 hu, bas wajah tu nahi hoti... 💭"></p>
+
+  <p class="line" data-text="Tere bina jeena seekh liya hai, par har pal tujhe mehsoos karta hoon... 🌙"></p>
+
+  <p class="line" data-text="Dua hai har pal tujhe woh sub mile jo kabhi mere saath socha tha... ❤️"></p>
+
+  <p class="line" data-text="Duaa karta hoon khushi mile tujhe har mod par... ❤️"></p>
+
+  <p class="line" data-text="Tera khush rehna hi mera aakhri pyaar hai... 💫"></p>
+
+  <p class="line" data-text="Chahe hum sath na ho 😘, par dil se dua dena nahi chhoda hai maine... ❣️"></p>
+
+  <p class="line" data-text="Zindagi ki iss naye safar mein har pal khushiyo se bhara ho... 😗"></p>
+
+  <p class="line" data-text="Chahe raste alag ho gaye, par duaayen kabhi kam nahi hongi ... 😊"></p>
+
+  <p class="line" data-text="💬 Maybe today is the perfect moment to say... could we start as friends? 🤗🌸"></p>
+
+  <p class="line" data-text="💌 I hope this note brings a smile to your face 😄. If you feel the same way, I would love to get to know you better. 💕 But if this message makes you uncomfortable, please don’t feel pressured. I respect your feelings. 🙏"></p>
+
+</div>
+
+<div class="heart">🌸 U'r Mr 🤗</div>
+
+<a
+  href="https://wa.me/918683948560?text=Mari%20shadii%20ho%20chuki%20hai%2C%20ab%20mujhe%20tujhse%20koi%20wasta%20nahi%20rakhna%20na%20koi%20baat%20karni%20hai.%20Tujhe%20itni%20si%20baat%20samajh%20nahi%20aati%20to%20bhaad%20mein%20jaao%20tum%20aur%20tera%20pyaar.%20Birthday%20wish%20ke%20liye%20thanks%20%E2%80%94%20Thank%20you%20so%20much%20%F0%9F%99%8F"
+  target="_blank"
+  class="whatsapp-button"
+>
+  💔 Akhri Baat WhatsApp Pe...🙄
 </a>
+```
 
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    const lines = document.querySelectorAll(".line");
+
+    let lineIndex = 0;
+
+    function typeLine() {
+      if (lineIndex >= lines.length) return;
+
+      const line = lines[lineIndex];
+      const text = line.getAttribute("data-text");
+
+      let charIndex = 0;
+
+      function typeCharacter() {
+        if (charIndex < text.length) {
+          line.textContent += text.charAt(charIndex);
+          charIndex++;
+
+          setTimeout(typeCharacter, 35);
+        } else {
+          lineIndex++;
+          setTimeout(typeLine, 400);
+        }
+      }
+
+      typeCharacter();
+    }
+
+    typeLine();
+  </script>
+
 </body>
 </html>
